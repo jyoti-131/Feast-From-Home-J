@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feast From Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <a href="index.html" class="logo"><img src="Images/logo_img.jpg" alt="Logo"></a>
+            <div class="nav-links" id="nav-links">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="#home">HOME</a></li>
+                    <li><a href="#about">ABOUT</a></li>
+                    <li><a href="#menu">MENU</a></li>
+                    <li><a href="#blog">BLOG</a></li>
+                    <li><a href="#" onclick="openContactPopup()">CONTACT</a></li>
+                </ul>
+            </div>
+            <div class="profile-container" id="profile-container">
+                <i class="fa fa-user-circle" id="profile-icon" onclick="openProfile()"></i>
+                <span id="profile-name"></span>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="text-box">
+            <h1 class="animated-text">Feast From Home: A world of flavors</h1>
+            <p class="animated-text">Our website is your portal to this culinary paradise, where you can browse mouthwatering menus, customize your order to perfection, and have it delivered straight to your doorstep. We are the gallant knights, slaying hunger pangs with lightning-fast speed and unwavering reliability.</p>
+            <a href="#" class="hero-btn" onclick="openForm()">Register</a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h2 class="section-title">About Us</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p class="fade-in-element">Welcome to Feast From Home, where culinary dreams come true! We are passionate about bringing the finest flavors from around the world directly to your doorstep. Our mission is to revolutionize the way you experience food delivery.</p>
+                <p class="fade-in-element">With a team of dedicated food enthusiasts and tech experts, we've created a platform that not only satisfies your cravings but also introduces you to new and exciting cuisines. From local delicacies to international specialties, we've got it all!</p>
+                <div class="about-stats">
+                    <div class="stat-item fade-in-element">
+                        <span class="stat-number" data-target="1000">0</span>+
+                        <p>Restaurants</p>
+                    </div>
+                    <div class="stat-item fade-in-element">
+                        <span class="stat-number" data-target="50000">0</span>+
+                        <p>Happy Customers</p>
+                    </div>
+                    <div class="stat-item fade-in-element">
+                        <span class="stat-number" data-target="100">0</span>+
+                        <p>Cities Served</p>
+                    </div>
+                </div>
+            </div>
+            <div class="about-images">
+                <img src="Images/img_chef.jpeg" alt="Chef preparing food" class="about-img fade-in-element">
+                <img src="Images/delisious_img.jpeg" alt="Delicious meal" class="about-img fade-in-element">
+                <img src="Images/happy_customers_img.jpeg" alt="Happy customers" class="about-img fade-in-element">
+                <img src="Images/food.jpg" alt="Food" class="about-img fade-in-element">
+            </div>
+        </div>
+    </section>
+
+    <div class="form-popup" id="registrationForm">
+        <div class="form-container">
+            <h2>Join Our Culinary Journey</h2>
+            <form id="registrationFormContent">
+                <div class="form-group">
+                    <input type="text" placeholder="Your Name" id="userName" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Your Email" id="userEmail" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" placeholder="Your Phone Number" id="userPhone" required>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Your Address" id="userAddress" required></textarea>
+                </div>
+                <button type="button" class="submit-btn" onclick="saveProfile()">Start Your Feast</button>
+            </form>
+            <button type="button" class="close-btn" onclick="closeForm()"></button>
+        </div>
+    </div>
+
+    <div class="form-popup" id="profilePopup">
+        <div class="form-container">
+            <h2>Your Profile</h2>
+            <div id="profileDetails"></div>
+            <button type="button" class="close-btn" onclick="closeProfile()"></button>
+        </div>
+    </div>
+
+    <section id="menu" class="Menu">
+        <h1>Our Menu</h1>
+        <div class="menu-container">
+            <div class="menu-item">
+                <img src="Images/img5.jpeg" alt="Appetizers" onclick="showMenuItems('appetizers')">
+                <p>Appetizers</p>
+            </div>
+            <div class="menu-item">
+                <img src="Images/img6.jpeg" alt="Desserts" onclick="showMenuItems('desserts')">
+                <p>Desserts</p>
+            </div>
+            <div class="menu-item">
+                <img src="Images/img10.jpeg" alt="Beverages" onclick="showMenuItems('beverages')">
+                <p>Beverages</p>
+            </div>
+            <div class="menu-item">
+                <img src="Images/img3.jpeg" alt="Cakes" onclick="showMenuItems('cakes')">
+                <p>Cakes</p>
+            </div>
+            <div class="menu-item">
+                <img src="Images/img16.jpg" alt="Main-course" onclick="showMenuItems('main-course')">
+                <p>Main-course</p>
+            </div>
+        </div>
+
+        <div id="appetizers" class="menu-list" style="display: none;">
+            <h2>Appetizers</h2>
+            <ul>
+                <li>Bruschetta</li>
+                <li>Mozzarella Sticks</li>
+                <li>Spinach and Artichoke Dip</li>
+                <li>Chicken Wings</li>
+                <li>Nachos</li>
+            </ul>
+        </div>
+
+        <div id="desserts" class="menu-list" style="display: none;">
+            <h2>Desserts</h2>
+            <ul>
+                <li>Chocolate Lava Cake</li>
+                <li>Tiramisu</li>
+                <li>Cheesecake</li>
+                <li>Apple Pie</li>
+                <li>Ice Cream Sundae</li>
+            </ul>
+        </div>
+
+        <div id="beverages" class="menu-list" style="display: none;">
+            <h2>Beverages</h2>
+            <ul>
+                <li>Fresh Lemonade</li>
+                <li>Iced Tea</li>
+                <li>Smoothies</li>
+                <li>Coffee</li>
+                <li>Soft Drinks</li>
+            </ul>
+        </div>
+
+        <div id="cakes" class="menu-list" style="display: none;">
+            <h2>Cakes</h2>
+            <ul>
+                <li>Red Velvet Cake</li>
+                <li>Carrot Cake</li>
+                <li>Black Forest Cake</li>
+                <li>Lemon Drizzle Cake</li>
+                <li>Chocolate Fudge Cake</li>
+            </ul>
+        </div>
+
+        <div id="main-course" class="menu-list" style="display: none;">
+            <h2>Main Course</h2>
+            <ul>
+                <li>Grilled Salmon</li>
+                <li>Beef Steak</li>
+                <li>Vegetable Lasagna</li>
+                <li>Chicken Parmesan</li>
+                <li>Mushroom Risotto</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="blog" class="blog">
+        <h2>Our Blog</h2>
+        <div class="blog-container">
+            <div class="blog-card">
+                <img src="Images/blog1.jpeg" alt="Blog 1">
+                <div class="blog-content">
+                    <h3>The Art of Food Plating</h3>
+                    <p>Discover how presentation can elevate your dining experience...</p>
+                    <a href="blog-post1.html" class="read-more">Read More</a>
+                </div>
+            </div>
+            <div class="blog-card">
+                <img src="Images/blog2.jpeg" alt="Blog 2">
+                <div class="blog-content">
+                    <h3>Exploring Global Cuisines</h3>
+                    <p>Join us on a culinary journey around the world...</p>
+                    <a href="blog-post2.html" class="read-more">Read More</a>
+                </div>
+            </div>
+            <div class="blog-card">
+                <img src="Images/blog3.jpeg" alt="Blog 3">
+                <div class="blog-content">
+                    <h3>Seasonal Ingredients Spotlight</h3>
+                    <p>Learn about the best ingredients for each season...</p>
+                    <a href="blog-post3.html" class="read-more">Read More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Contact Popup -->
+<div class="contact-popup" id="contactPopup">
+    <div class="contact-container">
+        <h2>Our Partner Restaurants</h2>
+        <button type="button" class="close-btn" onclick="closeContactPopup()">&times;</button>
+        <div class="contact-list">
+            <div class="contact-item">
+                <h3>The Savory Spoon</h3>
+                <p>Rating: ★★★★☆ (4.2/5)</p>
+                <p>Address: 123 Flavor Ln, Tasteville</p>
+            </div>
+            <div class="contact-item">
+                <h3>Gourmet Galaxy</h3>
+                <p>Rating: ★★★★★ (4.8/5)</p>
+                <p>Address: 456 Culinary Blvd, Epicurean City</p>
+            </div>
+            <div class="contact-item">
+                <h3>Fusion Fiesta</h3>
+                <p>Rating: ★★★★☆ (4.5/5)</p>
+                <p>Address: 789 Melting Pot St, Blend Town</p>
+            </div>
+            <div class="contact-item">
+                <h3>Bistro Bliss</h3>
+                <p>Rating: ★★★★☆ (4.3/5)</p>
+                <p>Address: 101 Cozy Corner, Comfort Springs</p>
+            </div>
+            <div class="contact-item">
+                <h3>Zesty Zen</h3>
+                <p>Rating: ★★★★☆ (4.1/5)</p>
+                <p>Address: 202 Tranquil Terrace, Serenity Falls</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <script>
+        var navLinks = document.getElementById("nav-links");
+        var profileIcon = document.getElementById("profile-icon");
+        var profileName = document.getElementById("profile-name");
+        var profileContainer = document.getElementById("profile-container");
+        var profileDetails = document.getElementById("profileDetails");
+        var profilePopup = document.getElementById("profilePopup");
+
+        function showMenu() {
+            navLinks.style.right = "0";
+        }
+
+        function hideMenu() {
+            navLinks.style.right = "-200px";
+        }
+
+        function openForm() {
+            document.getElementById("registrationForm").style.display = "flex";
+        }
+
+        function closeForm() {
+            document.getElementById("registrationForm").style.display = "none";
+        }
+
+        function saveProfile() {
+            var name = document.getElementById("userName").value;
+            var email = document.getElementById("userEmail").value;
+            var phone = document.getElementById("userPhone").value;
+            var address = document.getElementById("userAddress").value;
+
+            if (name && email && phone && address) {
+                profileName.textContent = name;
+                profileDetails.innerHTML = `
+                    <p><strong>Name:</strong> ${name}</p>
+                    <p><strong>Email:</strong> ${email}</p>
+                    <p><strong>Phone:</strong> ${phone}</p>
+                    <p><strong>Address:</strong> ${address}</p>
+                `;
+                closeForm();
+                profileContainer.style.display = "flex";
+            } else {
+                alert("Please fill in all fields.");
+            }
+        }
+
+        function openProfile() {
+            profilePopup.style.display = "flex";
+        }
+
+        function closeProfile() {
+            profilePopup.style.display = "none";
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const aboutSection = document.querySelector('.about');
+            const fadeElements = document.querySelectorAll('.fade-in-element');
+            const statItems = document.querySelectorAll('.stat-number');
+            const blogCards = document.querySelectorAll('.blog-card');
+
+            function isInViewport(element) {
+                const rect = element.getBoundingClientRect();
+                return (
+                    rect.top >= 0 &&
+                    rect.left >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                );
+            }
+
+            function animateValue(obj, start, end, duration) {
+                let startTimestamp = null;
+                const step = (timestamp) => {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                    obj.innerHTML = Math.floor(progress * (end - start) + start);
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    }
+                };
+                window.requestAnimationFrame(step);
+            }
+
+            function animateAboutSection() {
+                if (isInViewport(aboutSection)) {
+                    fadeElements.forEach((element, index) => {
+                        setTimeout(() => {
+                            element.classList.add('animate');
+                        }, index * 200);
+                    });
+
+                    statItems.forEach((item) => {
+                        const endValue = parseInt(item.getAttribute('data-target'));
+                        animateValue(item, 0, endValue, 2000);
+                    });
+
+                    window.removeEventListener('scroll', animateAboutSection);
+                }
+            }
+
+            function animateBlogCards() {
+                blogCards.forEach((card, index) => {
+                    if (isInViewport(card)) {
+                        setTimeout(() => {
+                            card.classList.add('animate');
+                        }, index * 200);
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', animateAboutSection);
+            window.addEventListener('scroll', animateBlogCards);
+            animateAboutSection();
+            animateBlogCards();
+        });
+
+        function showMenuItems(category) {
+            document.querySelectorAll('.menu-list').forEach(list => {
+                list.style.display = 'none';
+            });
+
+            document.getElementById(category).style.display = 'block';
+        }
+        function showMenuItems(category) {
+    // Get the current menu list to be toggled
+    const menuList = document.getElementById(category);
+
+    // Check the current display state and toggle it
+    if (menuList.style.display === 'block') {
+        // If the menu list is currently displayed, hide it
+        menuList.style.display = 'none';
+    } else {
+        // Otherwise, hide all menu lists and show the clicked one
+        document.querySelectorAll('.menu-list').forEach(list => {
+            list.style.display = 'none';
+        });
+        menuList.style.display = 'block';
+    }
+}
+
+function openContactPopup() {
+    document.getElementById("contactPopup").style.display = "flex";
+}
+
+function closeContactPopup() {
+    document.getElementById("contactPopup").style.display = "none";
+}
+
+function openContactPopup() {
+    document.getElementById("contactPopup").style.display = "block";
+}
+
+function closeContactPopup() {
+    document.getElementById("contactPopup").style.display = "none";
+}
+
+// Close the popup if the user clicks outside of it
+window.onclick = function(event) {
+    if (event.target == document.getElementById("contactPopup")) {
+        closeContactPopup();
+    }
+}
+    </script>
+</body>
+
+</html>
